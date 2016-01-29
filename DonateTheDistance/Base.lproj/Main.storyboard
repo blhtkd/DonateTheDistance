@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<<<<<<< Updated upstream
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="14F1509" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Psf-l4-Rvl">
+=======
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+>>>>>>> Stashed changes
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
@@ -8,7 +12,11 @@
         <!--Charity Selection View Controller-->
         <scene sceneID="knp-wu-Jle">
             <objects>
+<<<<<<< Updated upstream
                 <viewController id="Psf-l4-Rvl" customClass="CharitySelectionViewController" customModule="DonateTheDistance" customModuleProvider="target" sceneMemberID="viewController">
+=======
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="DonateTheDistance" customModuleProvider="target" sceneMemberID="viewController">
+>>>>>>> Stashed changes
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="5US-Pq-0G6"/>
                         <viewControllerLayoutGuide type="bottom" id="m4X-3z-ITn"/>
