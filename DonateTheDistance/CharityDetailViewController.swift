@@ -1,15 +1,17 @@
 //
-//  ActivitySelectionViewController.swift
+//  CharityDetailViewController.swift
 //  DonateTheDistance
 //
-//  Created by Brooke Haile-Mariam on 12/21/15.
-//  Copyright © 2015 Brooke Haile-Mariam. All rights reserved.
+//  Created by MU IT Program on 1/29/16.
+//  Copyright © 2016 Brooke Haile-Mariam. All rights reserved.
 //
 
 import UIKit
 
-class ActivitySelectionViewController: UIViewController {
+class CharityDetailViewController: UIViewController {
 
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -22,9 +24,6 @@ class ActivitySelectionViewController: UIViewController {
     }
     
 
-    @IBAction func showCharityDetail(sender: AnyObject) {
-        performSegueWithIdentifier("toCharityDetail", sender: self)
-    }
     /*
     // MARK: - Navigation
 
