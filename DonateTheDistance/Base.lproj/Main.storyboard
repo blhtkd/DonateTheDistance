@@ -71,10 +71,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QkG-RA-bF0">
-                                <rect key="frame" x="266" y="291" width="46" height="30"/>
-                                <state key="normal" title="Button"/>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WHN-OY-90N">
                                 <rect key="frame" x="236" y="85" width="106" height="30"/>
                                 <state key="normal" title="ToCharityDetail"/>
@@ -82,16 +78,133 @@
                                     <action selector="showCharityDetail:" destination="2yP-Fa-Jgp" eventType="touchDown" id="YCj-qe-4WB"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QkG-RA-bF0">
+                                <rect key="frame" x="266" y="291" width="46" height="30"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="bikeButton:" destination="2yP-Fa-Jgp" eventType="touchDown" id="Qn5-1P-1b2"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <connections>
                         <segue destination="Kmt-fL-ph9" kind="show" identifier="toCharityDetail" id="p9l-X8-bb9"/>
+                        <segue destination="PvU-kf-pa7" kind="show" identifier="toWorkout" id="xtL-kg-po9"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yMT-wy-UA5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-762" y="201"/>
+            <point key="canvasLocation" x="-790" y="201"/>
+        </scene>
+        <!--Workout View Controller-->
+        <scene sceneID="iYd-lC-v9Y">
+            <objects>
+                <viewController id="PvU-kf-pa7" customClass="WorkoutViewController" customModule="DonateTheDistance" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="xVd-cW-FBO"/>
+                        <viewControllerLayoutGuide type="bottom" id="3ML-LY-ls8"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="tfj-2a-1Ez">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ySO-kw-D3t">
+                                <rect key="frame" x="272" y="375" width="46" height="30"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="walkButton:" destination="PvU-kf-pa7" eventType="touchDown" id="8Mm-Pz-BRY"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hf1-Dy-sOp">
+                                <rect key="frame" x="277" y="446" width="46" height="30"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="bikeButton:" destination="PvU-kf-pa7" eventType="touchDown" id="iMU-8p-wmz"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5FB-8Z-8wo">
+                                <rect key="frame" x="277" y="504" width="46" height="30"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="runButton:" destination="PvU-kf-pa7" eventType="touchDown" id="Lag-VC-j4L"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <segue destination="KF0-La-ANs" kind="show" identifier="toSponsor" id="G7E-zM-C7Z"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="yWS-fQ-2pg" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-97" y="566"/>
+        </scene>
+        <!--Sponsor View Controller-->
+        <scene sceneID="sSg-QD-uLj">
+            <objects>
+                <viewController id="KF0-La-ANs" customClass="SponsorViewController" customModule="DonateTheDistance" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="fuD-49-YcQ"/>
+                        <viewControllerLayoutGuide type="bottom" id="dHX-dL-hcF"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="6pl-x9-sVb">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Sponsor" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="36w-Vm-yct">
+                                <rect key="frame" x="249" y="192" width="64" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <segue destination="FRr-tA-gX6" kind="presentation" identifier="toWorkoutResults" id="WVg-FB-5yx"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tij-n1-XgB" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="615" y="201"/>
+        </scene>
+        <!--Workout Results View Controller-->
+        <scene sceneID="jAo-X3-wSg">
+            <objects>
+                <viewController id="FRr-tA-gX6" customClass="WorkoutResultsViewController" customModule="DonateTheDistance" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="e6B-nX-Iqf"/>
+                        <viewControllerLayoutGuide type="bottom" id="uuI-4J-Rgq"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="jNf-WV-QLm">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="L5c-IJ-cha" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1368" y="201"/>
+        </scene>
+        <!--Profile Page View Controller-->
+        <scene sceneID="S4r-qb-peC">
+            <objects>
+                <viewController id="c9A-es-biV" customClass="ProfilePageViewController" customModule="DonateTheDistance" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="OlN-EE-l0G"/>
+                        <viewControllerLayoutGuide type="bottom" id="w3v-Xr-Sp1"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="nae-4D-6QG">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="TjO-Eu-UfL" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2168" y="201"/>
         </scene>
         <!--Charity Detail View Controller-->
         <scene sceneID="dOj-3s-2AD">
