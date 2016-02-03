@@ -1,5 +1,5 @@
 //
-//  WorkoutResultsViewController.swift
+//  RegistrationViewController.swift
 //  DonateTheDistance
 //
 //  Created by MU IT Program on 2/1/16.
@@ -8,8 +8,10 @@
 
 import UIKit
 
-class WorkoutResultsViewController: UIViewController {
+class RegistrationViewController: UIViewController {
 
+    var archiver = UserData()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -21,8 +23,10 @@ class WorkoutResultsViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    @IBAction func toProfile(sender: AnyObject) {
-        performSegueWithIdentifier("toProfile", sender: self)
-        
+
+    @IBAction func submit(sender: AnyObject) {
+        performSegueWithIdentifier("toCharityTable", sender: self)
     }
+    
+
 }

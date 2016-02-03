@@ -12,6 +12,8 @@
 		674DB2FA1C5FDCAD007A9982 /* ProfilePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 674DB2F91C5FDCAD007A9982 /* ProfilePageViewController.swift */; };
 		674DB2FC1C5FDCD6007A9982 /* WorkoutResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 674DB2FB1C5FDCD6007A9982 /* WorkoutResultsViewController.swift */; };
 		674DB2FE1C5FDD03007A9982 /* SponsorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 674DB2FD1C5FDD03007A9982 /* SponsorViewController.swift */; };
+		674DB3001C601BE8007A9982 /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 674DB2FF1C601BE8007A9982 /* RegistrationViewController.swift */; };
+		674DB3021C627D84007A9982 /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 674DB3011C627D83007A9982 /* UserData.swift */; };
 		C672ED381C2645DB00E505AA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C672ED371C2645DB00E505AA /* AppDelegate.swift */; };
 		C672ED3D1C2645DB00E505AA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C672ED3B1C2645DB00E505AA /* Main.storyboard */; };
 		C672ED3F1C2645DB00E505AA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C672ED3E1C2645DB00E505AA /* Assets.xcassets */; };
@@ -46,6 +48,8 @@
 		674DB2F91C5FDCAD007A9982 /* ProfilePageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfilePageViewController.swift; sourceTree = "<group>"; };
 		674DB2FB1C5FDCD6007A9982 /* WorkoutResultsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkoutResultsViewController.swift; sourceTree = "<group>"; };
 		674DB2FD1C5FDD03007A9982 /* SponsorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SponsorViewController.swift; sourceTree = "<group>"; };
+		674DB2FF1C601BE8007A9982 /* RegistrationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegistrationViewController.swift; sourceTree = "<group>"; };
+		674DB3011C627D83007A9982 /* UserData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
 		C672ED341C2645DA00E505AA /* DonateTheDistance.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DonateTheDistance.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C672ED371C2645DB00E505AA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C672ED3C1C2645DB00E505AA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -124,6 +128,8 @@
 				674DB2FD1C5FDD03007A9982 /* SponsorViewController.swift */,
 				674DB2FB1C5FDCD6007A9982 /* WorkoutResultsViewController.swift */,
 				674DB2F91C5FDCAD007A9982 /* ProfilePageViewController.swift */,
+				674DB2FF1C601BE8007A9982 /* RegistrationViewController.swift */,
+				674DB3011C627D83007A9982 /* UserData.swift */,
 			);
 			path = DonateTheDistance;
 			sourceTree = "<group>";
@@ -281,6 +287,8 @@
 				C672ED661C2647DB00E505AA /* CharitySelectionViewController.swift in Sources */,
 				674DB2F61C5C0270007A9982 /* CharityDetailViewController.swift in Sources */,
 				C672ED381C2645DB00E505AA /* AppDelegate.swift in Sources */,
+				674DB3001C601BE8007A9982 /* RegistrationViewController.swift in Sources */,
+				674DB3021C627D84007A9982 /* UserData.swift in Sources */,
 				C672ED6A1C28CDD000E505AA /* ActivitySelectionViewController.swift in Sources */,
 				674DB2FC1C5FDCD6007A9982 /* WorkoutResultsViewController.swift in Sources */,
 				674DB2FE1C5FDD03007A9982 /* SponsorViewController.swift in Sources */,
