@@ -9,8 +9,6 @@
 import UIKit
 
 class WorkoutViewController: UIViewController {
-
-    var selectedButton = 0;
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,16 +22,7 @@ class WorkoutViewController: UIViewController {
     }
 
     @IBAction func walkButton(sender: AnyObject) {
-        selectedButton = 1;
         performSegueWithIdentifier("toSponsor", sender: self)
-    }
-    
-    @IBAction func runButton(sender: AnyObject) {
-        selectedButton = 2;
-    }
-    
-    @IBAction func bikeButton(sender: AnyObject) {
-        selectedButton = 3;
     }
     
 
