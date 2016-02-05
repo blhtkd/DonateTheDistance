@@ -17,6 +17,7 @@ class UserData: NSObject {
     var totalDistance = 0.0
     var totalDonated = 0.0
     var registrationDate = NSDate()
+    var registrationComplete = false
     
     required convenience init?(coder decoder: NSCoder) {
         self.init()
@@ -29,7 +30,9 @@ class UserData: NSObject {
         
         self.totalDistance = decoder.decodeDoubleForKey("totalDistance")
         self.totalDonated = decoder.decodeDoubleForKey("totalDonated")
+        
         self.registrationDate = (decoder.decodeObjectForKey("registrationDate") as? NSDate)!
+        self.registrationComplete = (decoder.decodeBoolForKey("registrationComplete"))
     }
 
     func encodeWithCoder(coder: NSCoder) {
@@ -41,7 +44,9 @@ class UserData: NSObject {
         
         coder.encodeDouble(self.totalDistance, forKey: "totalDistance")
         coder.encodeDouble(self.totalDonated, forKey: "totalDonated")
+        
         coder.encodeObject(self.registrationDate, forKey: "registrationDate")
+        coder.encodeBool(self.registrationComplete, forKey: "registrationComplete")
     }
 
 }

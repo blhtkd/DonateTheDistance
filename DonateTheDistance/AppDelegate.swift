@@ -12,10 +12,32 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+    var archiver = UserData()
 
-
+    //Check if the user has completed the registration so that it only appears once
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        // Override point for customization after application launch.
+        
+        //If the registration is complete, the initial view controller will be CharitySelectionVC
+        if (archiver.registrationComplete == true) {
+            self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
+            
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        
+            let initialViewController = storyboard.instantiateViewControllerWithIdentifier("CharitySelection")
+        
+            self.window?.rootViewController = initialViewController
+            self.window?.makeKeyAndVisible()
+        //If the registration is not complete, the initial view controller will be RegistrationVC
+        } else {
+            self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
+            
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            
+            let initialViewController = storyboard.instantiateViewControllerWithIdentifier("Registration")
+            
+            self.window?.rootViewController = initialViewController
+            self.window?.makeKeyAndVisible()
+        }
         return true
     }
 
