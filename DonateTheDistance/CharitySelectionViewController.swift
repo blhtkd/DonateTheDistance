@@ -9,7 +9,8 @@
 import UIKit
 
 class CharitySelectionViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
-
+    var registrationComplete : Bool = false
+    
     let charities: [String] = ["The Humane Society","Charity: Water","Stand Up 2 Cancer","Habitat for Humanity"]
     let charityIconNames: [String] = ["TheHumaneSocietyIcon.jpg", "CharityWaterIcon.png", "StandUpToCancerIcon.png", "HabitatForHumanity.png"]
     
@@ -17,6 +18,7 @@ class CharitySelectionViewController: UIViewController, UITableViewDelegate, UIT
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        
     }
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
