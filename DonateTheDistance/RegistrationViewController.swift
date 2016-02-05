@@ -101,6 +101,10 @@ class RegistrationViewController: UIViewController, UITextFieldDelegate {
         destinationViewController.registrationComplete = true
     }
     
+    @IBAction func userTappedBackground(sender: AnyObject) {
+        view.endEditing(true)
+    }
+    
     func textFieldShouldReturn(textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true;
