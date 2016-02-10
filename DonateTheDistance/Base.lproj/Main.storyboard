@@ -167,13 +167,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WHN-OY-90N">
-                                <rect key="frame" x="236" y="85" width="106" height="30"/>
-                                <state key="normal" title="ToCharityDetail"/>
-                                <connections>
-                                    <action selector="showCharityDetail:" destination="2yP-Fa-Jgp" eventType="touchDown" id="YCj-qe-4WB"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iH1-cW-8Dw">
                                 <rect key="frame" x="274" y="376" width="30" height="30"/>
                                 <state key="normal" title="Run"/>
@@ -183,16 +176,27 @@
                                 <state key="normal" title="Bike"/>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QkG-RA-bF0">
-                                <rect key="frame" x="272" y="291" width="34" height="30"/>
+                                <rect key="frame" x="272" y="331" width="34" height="30"/>
                                 <state key="normal" title="Walk"/>
                                 <connections>
                                     <action selector="bikeButton:" destination="2yP-Fa-Jgp" eventType="touchDown" id="Qn5-1P-1b2"/>
+                                </connections>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CW2-bh-tXz">
+                                <rect key="frame" x="13" y="-56" width="600" height="301"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WHN-OY-90N">
+                                <rect key="frame" x="247" y="277" width="106" height="30"/>
+                                <state key="normal" title="ToCharityDetail"/>
+                                <connections>
+                                    <action selector="showCharityDetail:" destination="2yP-Fa-Jgp" eventType="touchDown" id="YCj-qe-4WB"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <connections>
+                        <outlet property="charityDetailButton" destination="WHN-OY-90N" id="pdQ-5F-1Ug"/>
                         <segue destination="Kmt-fL-ph9" kind="show" identifier="toCharityDetail" id="p9l-X8-bb9"/>
                         <segue destination="PvU-kf-pa7" kind="show" identifier="toWorkout" id="xtL-kg-po9"/>
                     </connections>

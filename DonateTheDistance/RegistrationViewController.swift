@@ -94,7 +94,7 @@ class RegistrationViewController: UIViewController, UITextFieldDelegate {
         if ((weight) == "") {
             print("5")
         } else {
-            archiver.weight = Int(weight)!
+            //archiver.weight = Int(weight)!
         }
 
         archiver.registrationDate = NSDate()
