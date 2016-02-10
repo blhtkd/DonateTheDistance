@@ -10,6 +10,9 @@ import UIKit
 
 class ActivitySelectionViewController: UIViewController {
 
+    internal var charityName = "";
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 

@@ -34,13 +34,6 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vsz-09-L90">
-                                <rect key="frame" x="309" y="478" width="46" height="30"/>
-                                <state key="normal" title="Button"/>
-                                <connections>
-                                    <action selector="submit:" destination="RUk-3A-lX7" eventType="touchDown" id="2ev-f0-rq8"/>
-                                </connections>
-                            </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="BPf-1R-RPS">
                                 <rect key="frame" x="284" y="114" width="97" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -73,6 +66,20 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BNn-k4-PUq">
+                                <rect key="frame" x="-6" y="384" width="600" height="216"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="RUk-3A-lX7" id="4Pg-W3-rM4"/>
+                                    <outlet property="delegate" destination="RUk-3A-lX7" id="pTK-ha-S54"/>
+                                </connections>
+                            </pickerView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vsz-09-L90">
+                                <rect key="frame" x="301" y="325" width="46" height="30"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="submit:" destination="RUk-3A-lX7" eventType="touchDown" id="2ev-f0-rq8"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <connections>
@@ -84,6 +91,7 @@
                         <outlet property="heightFeetField" destination="bLv-ca-vWe" id="Xmp-5k-KRP"/>
                         <outlet property="heightInchesField" destination="Hfb-EU-1dd" id="PkP-qS-wnc"/>
                         <outlet property="lastNameField" destination="BPf-1R-RPS" id="5vc-a8-we1"/>
+                        <outlet property="picker" destination="BNn-k4-PUq" id="BOR-dL-g6i"/>
                         <outlet property="weightField" destination="Xdh-zh-GIQ" id="UPJ-6x-OlN"/>
                         <segue destination="Psf-l4-Rvl" kind="show" identifier="toCharityTable" id="2im-G0-qg3"/>
                     </connections>

@@ -16,6 +16,8 @@ class RegistrationViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var heightInchesField: UITextField!
     @IBOutlet weak var weightField: UITextField!
     
+    @IBOutlet weak var picker: UIPickerView!
+    
     var firstName : String = ""
     var lastName : String = ""
     var heightFeet : String = ""
@@ -24,9 +26,13 @@ class RegistrationViewController: UIViewController, UITextFieldDelegate {
     
     var archiver = UserData()
     
+    var bizCat = ["Cat One", "Cat Two", "Cat Three"]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         initFields()
+        picker.hidden = true;
+        weightField.text = bizCat[0]
     }
 
     override func didReceiveMemoryWarning() {
@@ -49,7 +55,10 @@ class RegistrationViewController: UIViewController, UITextFieldDelegate {
         heightFeetField.keyboardType = UIKeyboardType.NumberPad
         
         weightField.delegate = self
-        weightField.keyboardType = UIKeyboardType.NumberPad
+        
+        //picker.delegate = self
+        
+        
     }
 
     @IBAction func submit(sender: AnyObject) {
@@ -109,5 +118,31 @@ class RegistrationViewController: UIViewController, UITextFieldDelegate {
         textField.resignFirstResponder()
         return true;
     }
+    
+    // returns the number of 'columns' to display.
+    func numberOfComponentsInPickerView(pickerView: UIPickerView!) -> Int{
+        return 1
+    }
+    
+    // returns the # of rows in each component..
+    func pickerView(pickerView: UIPickerView!, numberOfRowsInComponent component: Int) -> Int{
+        return bizCat.count
+    }
+    
+    func pickerView(pickerView: UIPickerView!, titleForRow row: Int, forComponent component: Int) -> String! {
+        return bizCat[row]
+    }
+    
+    func pickerView(pickerView: UIPickerView!, didSelectRow row: Int, inComponent component: Int)
+    {
+        weightField.text = bizCat[row]
+        picker.hidden = true;
+    }
+    
+    func textFieldShouldBeginEditing(textField: UITextField) -> Bool {
+        picker.hidden = false
+        return false
+    }
+
     
 }
