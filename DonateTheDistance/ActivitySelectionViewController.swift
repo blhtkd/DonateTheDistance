@@ -10,20 +10,15 @@ import UIKit
 
 class ActivitySelectionViewController: UIViewController {
 
-    internal var charityName = "";
+    var charityName:String = String();
     
+    @IBOutlet weak var charityDetailButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        charityDetailButton.setTitle(charityName, forState: UIControlState.Normal)
+        
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
 
     @IBAction func showCharityDetail(sender: AnyObject) {
         performSegueWithIdentifier("toCharityDetail", sender: self)
