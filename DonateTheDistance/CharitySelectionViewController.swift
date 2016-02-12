@@ -14,6 +14,10 @@ class CharitySelectionViewController: UIViewController, UITableViewDelegate, UIT
     let charities: [String] = ["The Humane Society","Charity: Water","Stand Up 2 Cancer","Habitat for Humanity"]
     let charityIconNames: [String] = ["TheHumaneSocietyIcon.jpg", "CharityWaterIcon.png", "StandUpToCancerIcon.png", "HabitatForHumanity.png"]
     
+    @IBOutlet weak var tableView: UITableView!
+    var activitySelection = ActivitySelectionViewController()
+    var charitySelected = String()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -38,10 +42,14 @@ class CharitySelectionViewController: UIViewController, UITableViewDelegate, UIT
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        performSegueWithIdentifier("toCharityDetail", sender: self)
+        charitySelected = charities[indexPath.row]
+        //performSegueWithIdentifier("toCharityDetail", sender: self)
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        _ = segue.destinationViewController as! ActivitySelectionViewController
+        let selectedIndex = self.tableView.indexPathForCell(sender as! UITableViewCell)
+        
+        let destinationViewController = segue.destinationViewController as! ActivitySelectionViewController
+        destinationViewController.charityName = charities[(selectedIndex?.row)!]
     }
 }
