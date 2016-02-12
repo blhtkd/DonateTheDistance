@@ -8,7 +8,7 @@
 
 import UIKit
 
-class RegistrationViewController: UIViewController, UITextFieldDelegate {
+class RegistrationViewController: UIViewController, UITextFieldDelegate, UIPickerViewDataSource,UIPickerViewDelegate {
 
     @IBOutlet weak var firstNameField: UITextField!
     @IBOutlet weak var lastNameField: UITextField!
@@ -17,6 +17,7 @@ class RegistrationViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var weightField: UITextField!
     
     @IBOutlet weak var picker: UIPickerView!
+    @IBOutlet weak var pickerInches: UIPickerView!
     
     var firstName : String = ""
     var lastName : String = ""
@@ -29,11 +30,16 @@ class RegistrationViewController: UIViewController, UITextFieldDelegate {
     var heightFeetPicker = ["1", "2", "3", "4", "5", "6", "7", "8", "9"]
     var heightInchesPicker = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11"]
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         initFields()
+        
         picker.hidden = true;
+        pickerInches.hidden = true;
+        
         heightFeetField.text = heightFeetPicker[0]
+        heightInchesField.text = heightInchesPicker[0]
     }
 
     override func didReceiveMemoryWarning() {
@@ -53,9 +59,10 @@ class RegistrationViewController: UIViewController, UITextFieldDelegate {
         weightField.keyboardType = UIKeyboardType.NumberPad
         
         heightFeetField.delegate = self
-        heightFeetField.keyboardType = UIKeyboardType.NumberPad
+        heightFeetField.inputView = picker
         
-        weightField.delegate = self
+        heightInchesField.delegate = self
+        heightInchesField.inputView = pickerInches
     }
 
     @IBAction func submit(sender: AnyObject) {
@@ -109,35 +116,56 @@ class RegistrationViewController: UIViewController, UITextFieldDelegate {
         view.endEditing(true)
     }
     
+    // Dismiss the keyboard when the user taps the "Return" key while editing a text field.
     func textFieldShouldReturn(textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true;
     }
     
     // returns the number of 'columns' to display.
-    func numberOfComponentsInPickerView(pickerView: UIPickerView!) -> Int{
+    func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int{
         return 1
     }
     
     // returns the # of rows in each component..
-    func pickerView(pickerView: UIPickerView!, numberOfRowsInComponent component: Int) -> Int{
-        return heightFeetPicker.count
+    func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int{
+        if (pickerView.tag == 0) {
+            return heightFeetPicker.count
+        } else {
+            return heightInchesPicker.count
+        }
     }
     
-    func pickerView(pickerView: UIPickerView!, titleForRow row: Int, forComponent component: Int) -> String! {
-        return heightFeetPicker[row]
+    func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        if (pickerView.tag == 0) {
+            return heightFeetPicker[row] 
+        } else {
+            return heightInchesPicker[row]
+        }
     }
     
-    func pickerView(pickerView: UIPickerView!, didSelectRow row: Int, inComponent component: Int)
+    func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int)
     {
-        heightFeetField.text = heightFeetPicker[row]
-        picker.hidden = true;
+        if (pickerView.tag == 0) {
+            heightFeetField.text = heightFeetPicker[row]
+            picker.hidden = true
+        } else {
+            heightInchesField.text = heightInchesPicker[row]
+            pickerInches.hidden = true
+        }
     }
     
     func textFieldShouldBeginEditing(textField: UITextField) -> Bool {
-        picker.hidden = false
+        if (textField == heightFeetField) {
+            picker.hidden = false
+        } else if (textField == heightInchesField) {
+            pickerInches.hidden = false
+        } else {
+            picker.hidden = true
+            pickerInches.hidden = true
+        }
+        
         return false
     }
-
     
 }
