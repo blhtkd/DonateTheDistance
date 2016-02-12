@@ -150,6 +150,9 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="2Ei-oy-wfz"/>
+                    <connections>
+                        <outlet property="tableView" destination="iyM-Rh-sdC" id="Fuc-qv-unv"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nDz-0I-Pzx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

@@ -26,13 +26,14 @@ class RegistrationViewController: UIViewController, UITextFieldDelegate {
     
     var archiver = UserData()
     
-    var bizCat = ["Cat One", "Cat Two", "Cat Three"]
+    var heightFeetPicker = ["1", "2", "3", "4", "5", "6", "7", "8", "9"]
+    var heightInchesPicker = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
         initFields()
         picker.hidden = true;
-        weightField.text = bizCat[0]
+        heightFeetField.text = heightFeetPicker[0]
     }
 
     override func didReceiveMemoryWarning() {
@@ -55,10 +56,6 @@ class RegistrationViewController: UIViewController, UITextFieldDelegate {
         heightFeetField.keyboardType = UIKeyboardType.NumberPad
         
         weightField.delegate = self
-        
-        //picker.delegate = self
-        
-        
     }
 
     @IBAction func submit(sender: AnyObject) {
@@ -98,10 +95,8 @@ class RegistrationViewController: UIViewController, UITextFieldDelegate {
         }
 
         archiver.registrationDate = NSDate()
-        print(archiver.registrationDate)
         
         archiver.registrationComplete = true
-         print(archiver.registrationComplete)
         performSegueWithIdentifier("toCharityTable", sender: self)
     }
     
@@ -126,16 +121,16 @@ class RegistrationViewController: UIViewController, UITextFieldDelegate {
     
     // returns the # of rows in each component..
     func pickerView(pickerView: UIPickerView!, numberOfRowsInComponent component: Int) -> Int{
-        return bizCat.count
+        return heightFeetPicker.count
     }
     
     func pickerView(pickerView: UIPickerView!, titleForRow row: Int, forComponent component: Int) -> String! {
-        return bizCat[row]
+        return heightFeetPicker[row]
     }
     
     func pickerView(pickerView: UIPickerView!, didSelectRow row: Int, inComponent component: Int)
     {
-        weightField.text = bizCat[row]
+        heightFeetField.text = heightFeetPicker[row]
         picker.hidden = true;
     }
     
