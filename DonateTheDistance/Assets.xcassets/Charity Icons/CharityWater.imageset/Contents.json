@@ -2,11 +2,12 @@
   "images" : [
     {
       "idiom" : "universal",
+      "filename" : "charity_water-1.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "CharityWaterIcon.png",
+      "filename" : "charity_water.png",
       "scale" : "2x"
     },
     {
