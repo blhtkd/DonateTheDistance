@@ -27,6 +27,8 @@ class WorkoutViewController: UIViewController {
     
     var managedObjectContext: NSManagedObjectContext?
     
+    var run:Run!
+    var archiver = WorkoutData()
     
     //The object you’ll tell to start or stop reading the user’s location
     lazy var locationManager: CLLocationManager = {
@@ -90,28 +92,30 @@ class WorkoutViewController: UIViewController {
         paceLabel.text = "Pace: " + paceQuantity.description
     }
     
-//    func saveRun() {
-//        // 1
-//        let savedRun = NSEntityDescription.insertNewObjectForEntityForName("Run",
-//            inManagedObjectContext: managedObjectContext!) as! Run
-//        savedRun.distance = distance
-//        savedRun.duration = seconds
-//        savedRun.timestamp = NSDate()
-//        
-//        // 2
-//        var savedLocations = [Location]()
-//        for location in locations {
-//            let savedLocation = NSEntityDescription.insertNewObjectForEntityForName("Location",
-//                inManagedObjectContext: managedObjectContext!) as! Location
-//            savedLocation.timestamp = location.timestamp
-//            savedLocation.latitude = location.coordinate.latitude
-//            savedLocation.longitude = location.coordinate.longitude
-//            savedLocations.append(savedLocation)
-//        }
-//        
-//        savedRun.locations = NSOrderedSet(array: savedLocations)
-//        run = savedRun
-//    }
+    // This method will create a new run object and assign it cumulative values, each CLLocation objects recorded are trimmed down to Location, which is then linked to the run
+    func saveRun() {
+        // Create and set values for the run
+        let savedRun = Run()
+        savedRun.distance = distance
+        savedRun.duration = seconds
+        savedRun.timestamp = NSDate()
+        
+        // For each location, save the specified values and add them to the array
+        var savedLocations = [Location]()
+        for location in locations {
+            let savedLocation = Location()
+            savedLocation.timestamp = location.timestamp
+            savedLocation.latitude = location.coordinate.latitude
+            savedLocation.longitude = location.coordinate.longitude
+            savedLocations.append(savedLocation)
+        }
+        
+        // Attach the locations to the runs
+        savedRun.locations = savedLocations
+        run = savedRun
+        archiver.run = savedRun
+        print("Distance:  \(archiver.run.distance) Duration: \(archiver.run.duration)")
+    }
 
     @IBAction func walkButton(sender: AnyObject) {
         performSegueWithIdentifier("toSponsor", sender: self)
@@ -137,14 +141,17 @@ class WorkoutViewController: UIViewController {
     }
     
     @IBAction func stopPressed(sender: AnyObject) {
+        
         let refreshAlert = UIAlertController(title: "Refresh", message: "Workout finished.", preferredStyle: UIAlertControllerStyle.Alert)
         
         refreshAlert.addAction(UIAlertAction(title: "Save", style: .Default, handler: { (action: UIAlertAction!) in
-            print("Handle Ok logic here")
+            self.saveRun()
+            
+            self.performSegueWithIdentifier("toSponsor", sender: nil)
         }))
         
         refreshAlert.addAction(UIAlertAction(title: "Discard", style: .Default, handler: { (action: UIAlertAction!) in
-            print("Handle Cancel Logic here")
+            self.performSegueWithIdentifier("toSponsor", sender: nil)
         }))
         
         presentViewController(refreshAlert, animated: true, completion: nil)
