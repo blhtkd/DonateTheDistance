@@ -11,7 +11,7 @@ import HealthKit
 import UIKit
 import CoreData
 
-class WorkoutViewController: UIViewController {
+class WalkViewController: UIViewController {
     
     @IBOutlet weak var startButton: UIButton!
     @IBOutlet weak var stopButton: UIButton!

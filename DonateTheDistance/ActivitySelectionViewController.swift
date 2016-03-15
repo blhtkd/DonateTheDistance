@@ -10,22 +10,21 @@ import UIKit
 
 class ActivitySelectionViewController: UIViewController {
 
+    @IBOutlet weak var picture: UIImageView!
     var charityName:String = String();
+    var pictureName: String = "TheHumaneSocietyIcon.jpg"
+    var archiver = UserData()
     
     @IBOutlet weak var charityDetailButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        charityName = archiver.charity
         charityDetailButton.setTitle(charityName, forState: UIControlState.Normal)
+        picture.image = UIImage(named: pictureName);
         
     }
 
-    @IBAction func showCharityDetail(sender: AnyObject) {
-        performSegueWithIdentifier("toCharityDetail", sender: self)
-    }
-    
-    @IBAction func bikeButton(sender: AnyObject) {
-        performSegueWithIdentifier("toWorkout", sender: self)
-    }
+
 
 }

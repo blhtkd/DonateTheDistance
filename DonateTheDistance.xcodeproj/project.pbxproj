@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		674DB2F61C5C0270007A9982 /* CharityDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 674DB2F51C5C0270007A9982 /* CharityDetailViewController.swift */; };
-		674DB2F81C5FDC16007A9982 /* WorkoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 674DB2F71C5FDC16007A9982 /* WorkoutViewController.swift */; };
 		674DB2FA1C5FDCAD007A9982 /* ProfilePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 674DB2F91C5FDCAD007A9982 /* ProfilePageViewController.swift */; };
 		674DB2FC1C5FDCD6007A9982 /* WorkoutResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 674DB2FB1C5FDCD6007A9982 /* WorkoutResultsViewController.swift */; };
 		674DB2FE1C5FDD03007A9982 /* SponsorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 674DB2FD1C5FDD03007A9982 /* SponsorViewController.swift */; };
@@ -48,7 +47,6 @@
 
 /* Begin PBXFileReference section */
 		674DB2F51C5C0270007A9982 /* CharityDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CharityDetailViewController.swift; sourceTree = "<group>"; };
-		674DB2F71C5FDC16007A9982 /* WorkoutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkoutViewController.swift; sourceTree = "<group>"; };
 		674DB2F91C5FDCAD007A9982 /* ProfilePageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfilePageViewController.swift; sourceTree = "<group>"; };
 		674DB2FB1C5FDCD6007A9982 /* WorkoutResultsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkoutResultsViewController.swift; sourceTree = "<group>"; };
 		674DB2FD1C5FDD03007A9982 /* SponsorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SponsorViewController.swift; sourceTree = "<group>"; };
@@ -300,7 +298,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				674DB2F81C5FDC16007A9982 /* WorkoutViewController.swift in Sources */,
 				C672ED661C2647DB00E505AA /* CharitySelectionViewController.swift in Sources */,
 				677899221C924A2700E36A6C /* Run.swift in Sources */,
 				677899201C9245A700E36A6C /* DTD.xcdatamodeld in Sources */,
