@@ -17,6 +17,7 @@ class CharitySelectionViewController: UIViewController, UITableViewDelegate, UIT
     @IBOutlet weak var tableView: UITableView!
     var activitySelection = ActivitySelectionViewController()
     var charitySelected = String()
+    var archiver = UserData()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -64,6 +65,13 @@ class CharitySelectionViewController: UIViewController, UITableViewDelegate, UIT
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         charitySelected = charities[indexPath.row]
+        archiver.charity = charitySelected
+        archiver.charityPic = charityIconNames[indexPath.row]
+        archiver.registrationDate = NSDate()
+        
+        archiver.registrationComplete = true
+        
+        
         //performSegueWithIdentifier("toCharityDetail", sender: self)
     }
     
