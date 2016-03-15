@@ -16,6 +16,8 @@ class UserData: NSObject {
     
     var totalDistance = 0.0
     var totalDonated = 0.0
+    var charity = ""
+    var charityPic = ""
     var registrationDate = NSDate()
     var registrationComplete = false
     
@@ -30,7 +32,8 @@ class UserData: NSObject {
         
         self.totalDistance = decoder.decodeDoubleForKey("totalDistance")
         self.totalDonated = decoder.decodeDoubleForKey("totalDonated")
-        
+        self.charity = (decoder.decodeObjectForKey("charity") as? String)!
+        self.charityPic = (decoder.decodeObjectForKey("charityPic") as? String)!
         self.registrationDate = (decoder.decodeObjectForKey("registrationDate") as? NSDate)!
         self.registrationComplete = (decoder.decodeBoolForKey("registrationComplete"))
     }
@@ -44,6 +47,9 @@ class UserData: NSObject {
         
         coder.encodeDouble(self.totalDistance, forKey: "totalDistance")
         coder.encodeDouble(self.totalDonated, forKey: "totalDonated")
+        
+        coder.encodeObject(self.charity, forKey: "charity")
+        coder.encodeObject(self.charityPic, forKey: "charityPic")
         
         coder.encodeObject(self.registrationDate, forKey: "registrationDate")
         coder.encodeBool(self.registrationComplete, forKey: "registrationComplete")

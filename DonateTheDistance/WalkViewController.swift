@@ -8,7 +8,7 @@
 
 import UIKit
 
-class WorkoutViewController: UIViewController {
+class WalkViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
