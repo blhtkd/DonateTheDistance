@@ -14,6 +14,7 @@
 		674DB2FE1C5FDD03007A9982 /* SponsorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 674DB2FD1C5FDD03007A9982 /* SponsorViewController.swift */; };
 		674DB3001C601BE8007A9982 /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 674DB2FF1C601BE8007A9982 /* RegistrationViewController.swift */; };
 		674DB3021C627D84007A9982 /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 674DB3011C627D83007A9982 /* UserData.swift */; };
+		67652FC41CB5FDF6000274CA /* MulticolorPolylineSegment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67652FC31CB5FDF6000274CA /* MulticolorPolylineSegment.swift */; };
 		677899201C9245A700E36A6C /* DTD.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 6778991E1C9245A700E36A6C /* DTD.xcdatamodeld */; };
 		677899221C924A2700E36A6C /* Run.swift in Sources */ = {isa = PBXBuildFile; fileRef = 677899211C924A2700E36A6C /* Run.swift */; };
 		677899241C924B0F00E36A6C /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 677899231C924B0F00E36A6C /* Location.swift */; };
@@ -54,6 +55,7 @@
 		674DB2FD1C5FDD03007A9982 /* SponsorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SponsorViewController.swift; sourceTree = "<group>"; };
 		674DB2FF1C601BE8007A9982 /* RegistrationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegistrationViewController.swift; sourceTree = "<group>"; };
 		674DB3011C627D83007A9982 /* UserData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
+		67652FC31CB5FDF6000274CA /* MulticolorPolylineSegment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MulticolorPolylineSegment.swift; sourceTree = "<group>"; };
 		6778991F1C9245A700E36A6C /* DTD.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DTD.xcdatamodel; sourceTree = "<group>"; };
 		677899211C924A2700E36A6C /* Run.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Run.swift; sourceTree = "<group>"; };
 		677899231C924B0F00E36A6C /* Location.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
@@ -142,6 +144,7 @@
 				6778991E1C9245A700E36A6C /* DTD.xcdatamodeld */,
 				677899211C924A2700E36A6C /* Run.swift */,
 				677899231C924B0F00E36A6C /* Location.swift */,
+				67652FC31CB5FDF6000274CA /* MulticolorPolylineSegment.swift */,
 			);
 			path = DonateTheDistance;
 			sourceTree = "<group>";
@@ -303,6 +306,7 @@
 				674DB2F81C5FDC16007A9982 /* WorkoutViewController.swift in Sources */,
 				C672ED661C2647DB00E505AA /* CharitySelectionViewController.swift in Sources */,
 				677899221C924A2700E36A6C /* Run.swift in Sources */,
+				67652FC41CB5FDF6000274CA /* MulticolorPolylineSegment.swift in Sources */,
 				677899201C9245A700E36A6C /* DTD.xcdatamodeld in Sources */,
 				674DB2F61C5C0270007A9982 /* CharityDetailViewController.swift in Sources */,
 				677899261C925DCF00E36A6C /* WorkoutData.swift in Sources */,
