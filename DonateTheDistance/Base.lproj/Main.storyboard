@@ -179,18 +179,24 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iH1-cW-8Dw">
-                                <rect key="frame" x="274" y="376" width="30" height="30"/>
+                                <rect key="frame" x="274" y="376" width="32" height="30"/>
                                 <state key="normal" title="Run"/>
+                                <connections>
+                                    <action selector="runButton:" destination="2yP-Fa-Jgp" eventType="touchDown" id="IS6-TG-eHx"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mqc-Vj-OKK">
                                 <rect key="frame" x="274" y="473" width="30" height="30"/>
                                 <state key="normal" title="Bike"/>
+                                <connections>
+                                    <action selector="bikeButton:" destination="2yP-Fa-Jgp" eventType="touchDown" id="BYJ-J6-Adg"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QkG-RA-bF0">
                                 <rect key="frame" x="272" y="331" width="34" height="30"/>
                                 <state key="normal" title="Walk"/>
                                 <connections>
-                                    <action selector="bikeButton:" destination="2yP-Fa-Jgp" eventType="touchDown" id="Qn5-1P-1b2"/>
+                                    <action selector="walkButton:" destination="2yP-Fa-Jgp" eventType="touchDown" id="PZw-4I-ryW"/>
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CW2-bh-tXz">

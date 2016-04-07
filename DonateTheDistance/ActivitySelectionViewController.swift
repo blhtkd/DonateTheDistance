@@ -24,8 +24,20 @@ class ActivitySelectionViewController: UIViewController {
         performSegueWithIdentifier("toCharityDetail", sender: self)
     }
     
-    @IBAction func bikeButton(sender: AnyObject) {
-        performSegueWithIdentifier("toWorkout", sender: self)
+    @IBAction func walkButton(sender: AnyObject) {
+        
+        
     }
+    
+    @IBAction func runButton(sender: AnyObject) {
+        performSegueWithIdentifier("toWorkout", sender: self)
+        
+    }
+    
+    @IBAction func bikeButton(sender: AnyObject) {
+        
+        
+    }
+    
 
 }

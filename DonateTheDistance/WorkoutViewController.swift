@@ -126,9 +126,11 @@ class WorkoutViewController: UIViewController {
         print("Locations: \(archiver.run.locations)")
     }
 
-    @IBAction func walkButton(sender: AnyObject) {
+    /*@IBAction func walkButton(sender: AnyObject) {
         performSegueWithIdentifier("toSponsor", sender: self)
-    }
+    }*/
+    
+    
     
     @IBAction func startPressed(sender: AnyObject) {
         startButton.hidden = true
@@ -167,7 +169,6 @@ class WorkoutViewController: UIViewController {
         
         presentViewController(refreshAlert, animated: true, completion: nil)
     }
-
 }
 
 //Class extension to conform to the CLLocationManagerDelegate protocol
