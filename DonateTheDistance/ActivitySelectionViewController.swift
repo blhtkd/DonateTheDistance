@@ -10,7 +10,8 @@ import UIKit
 
 class ActivitySelectionViewController: UIViewController {
 
-    var charityName:String = String();
+    var charityName:String = String()
+    var workoutType = WorkoutType.Default
     
     @IBOutlet weak var charityDetailButton: UIButton!
     
@@ -24,8 +25,23 @@ class ActivitySelectionViewController: UIViewController {
         performSegueWithIdentifier("toCharityDetail", sender: self)
     }
     
-    @IBAction func bikeButton(sender: AnyObject) {
+    @IBAction func walkButton(sender: AnyObject) {
+        
+        
+    }
+    
+    @IBAction func runButton(sender: AnyObject) {
+        workoutType = WorkoutType.Run
         performSegueWithIdentifier("toWorkout", sender: self)
     }
-
+    
+    @IBAction func bikeButton(sender: AnyObject) {
+        workoutType = WorkoutType.Bike
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        
+        let destinationViewController = segue.destinationViewController as! WorkoutViewController
+        destinationViewController.workoutType = workoutType
+    }
 }

@@ -25,10 +25,21 @@ class WorkoutResultsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         run = archiver.run
-        
-        
-        
+        /*run.duration = 15
+        run.distance = 100
+        run.timestamp = NSDate()
+        let l1 = Location()
+        l1.longitude = 45
+        l1.latitude = 45
+        let l2 = Location()
+        l2.longitude = 60
+        l2.latitude = 60
+        var locations = [Location]()
+        locations.append(l1)
+        locations.append(l2)
+        run.locations = locations*/
         print("Distance:  \(archiver.run.distance) Duration: \(archiver.run.duration)")
+        
         configureView()
     }
 
@@ -78,13 +89,13 @@ class WorkoutResultsViewController: UIViewController {
     
     // Whenever the map comes across a request to add an overlay, it should check if it’s an MKPolyline
     func mapView(mapView: MKMapView!, rendererForOverlay overlay: MKOverlay!) -> MKOverlayRenderer! {
-        if !overlay.isKindOfClass(MKPolyline) {
+        if !overlay.isKindOfClass(MulticolorPolylineSegment) {
             return nil
         }
         
-        let polyline = overlay as! MKPolyline
+        let polyline = overlay as! MulticolorPolylineSegment
         let renderer = MKPolylineRenderer(polyline: polyline)
-        renderer.strokeColor = UIColor.blackColor()
+        renderer.strokeColor = polyline.color
         renderer.lineWidth = 3
         return renderer
     }
@@ -110,8 +121,9 @@ class WorkoutResultsViewController: UIViewController {
             // Set the map bounds
             mapView.region = mapRegion()
             
-            // Make the line(s!) on the map
-            mapView.addOverlay(polyline())
+            // Make the lines on the map
+            let colorSegments = MulticolorPolylineSegment.colorSegments(forLocations: run.locations as [Location])
+            mapView.addOverlays(colorSegments)
         } else {
             // No locations were found!
             mapView.hidden = true

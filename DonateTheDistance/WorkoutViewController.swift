@@ -10,6 +10,7 @@ import CoreLocation
 import HealthKit
 import UIKit
 import CoreData
+import MapKit
 
 class WorkoutViewController: UIViewController {
     
@@ -20,10 +21,14 @@ class WorkoutViewController: UIViewController {
     @IBOutlet weak var distanceLabel: UILabel!
     @IBOutlet weak var paceLabel: UILabel!
     
+    @IBOutlet weak var mapView: MKMapView!
+    
     //Tracks the duration of the run, in seconds
     var seconds = 0.0
     //Holds the cumulative distance of the run, in meters
     var distance = 0.0
+    
+    var workoutType = WorkoutType.Default
     
     var managedObjectContext: NSManagedObjectContext?
     
@@ -41,6 +46,9 @@ class WorkoutViewController: UIViewController {
         
         // Movement threshold for new events
         _locationManager.distanceFilter = 10.0
+        
+        _locationManager.allowsBackgroundLocationUpdates = true
+        
         return _locationManager
     }()
     
@@ -66,6 +74,8 @@ class WorkoutViewController: UIViewController {
         timeLabel.hidden = true
         distanceLabel.hidden = true
         paceLabel.hidden = true
+        
+        mapView.hidden = true
     }
     
     //The timer is stopped when the user navigates away from the view
@@ -115,11 +125,14 @@ class WorkoutViewController: UIViewController {
         run = savedRun
         archiver.run = savedRun
         print("Distance:  \(archiver.run.distance) Duration: \(archiver.run.duration)")
+        print("Locations: \(archiver.run.locations)")
     }
 
-    @IBAction func walkButton(sender: AnyObject) {
+    /*@IBAction func walkButton(sender: AnyObject) {
         performSegueWithIdentifier("toSponsor", sender: self)
-    }
+    }*/
+    
+    
     
     @IBAction func startPressed(sender: AnyObject) {
         startButton.hidden = true
@@ -138,6 +151,8 @@ class WorkoutViewController: UIViewController {
             userInfo: nil,
             repeats: true)
         startLocationUpdates()
+        
+        mapView.hidden = false
     }
     
     @IBAction func stopPressed(sender: AnyObject) {
@@ -156,7 +171,6 @@ class WorkoutViewController: UIViewController {
         
         presentViewController(refreshAlert, animated: true, completion: nil)
     }
-
 }
 
 //Class extension to conform to the CLLocationManagerDelegate protocol
@@ -165,16 +179,40 @@ extension WorkoutViewController: CLLocationManagerDelegate {
     //Method that is called each time there are new location updates to provide the app
     func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         for location in locations {
-            //Make sure the device has a confident reading within 20 meters of the user's device
-            if location.horizontalAccuracy < 20 {
-                //Update the user's distance
+            let howRecent = location.timestamp.timeIntervalSinceNow
+            
+            if abs(howRecent) < 10 && location.horizontalAccuracy < 20 {
+                //update distance
                 if self.locations.count > 0 {
                     distance += location.distanceFromLocation(self.locations.last!)
+                    
+                    var coords = [CLLocationCoordinate2D]()
+                    coords.append(self.locations.last!.coordinate)
+                    coords.append(location.coordinate)
+                    
+                    let region = MKCoordinateRegionMakeWithDistance(location.coordinate, 500, 500)
+                    mapView.setRegion(region, animated: true)
+                    
+                    mapView.addOverlay(MKPolyline(coordinates: &coords, count: coords.count))
                 }
                 
-                //Save the user's location
+                //save location
                 self.locations.append(location)
             }
         }
+    }
+}
+
+extension WorkoutViewController: MKMapViewDelegate {
+    func mapView(mapView: MKMapView, rendererForOverlay overlay: MKOverlay) -> MKOverlayRenderer {
+        /*if !overlay.isKindOfClass(MKPolyline) {
+            return nil
+        }*/
+        
+        let polyline = overlay as! MKPolyline
+        let renderer = MKPolylineRenderer(polyline: polyline)
+        renderer.strokeColor = UIColor.blueColor()
+        renderer.lineWidth = 3
+        return renderer
     }
 }
