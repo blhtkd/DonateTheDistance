@@ -25,7 +25,7 @@ class WorkoutResultsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         run = archiver.run
-        run.duration = 15
+        /*run.duration = 15
         run.distance = 100
         run.timestamp = NSDate()
         let l1 = Location()
@@ -37,7 +37,7 @@ class WorkoutResultsViewController: UIViewController {
         var locations = [Location]()
         locations.append(l1)
         locations.append(l2)
-        run.locations = locations
+        run.locations = locations*/
         print("Distance:  \(archiver.run.distance) Duration: \(archiver.run.duration)")
         
         configureView()

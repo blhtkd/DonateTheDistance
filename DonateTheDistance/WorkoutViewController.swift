@@ -28,6 +28,8 @@ class WorkoutViewController: UIViewController {
     //Holds the cumulative distance of the run, in meters
     var distance = 0.0
     
+    var workoutType = WorkoutType.Default
+    
     var managedObjectContext: NSManagedObjectContext?
     
     var run:Run!

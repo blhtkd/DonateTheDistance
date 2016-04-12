@@ -7,17 +7,15 @@
 //
 
 import UIKit
+//import EasyTipView
 
-class RegistrationViewController: UIViewController, UITextFieldDelegate, UIPickerViewDataSource,UIPickerViewDelegate {
+class RegistrationViewController: UIViewController, UITextFieldDelegate {
 
     @IBOutlet weak var firstNameField: UITextField!
     @IBOutlet weak var lastNameField: UITextField!
     @IBOutlet weak var heightFeetField: UITextField!
     @IBOutlet weak var heightInchesField: UITextField!
     @IBOutlet weak var weightField: UITextField!
-    
-    @IBOutlet weak var picker: UIPickerView!
-    @IBOutlet weak var pickerInches: UIPickerView!
     
     var firstName : String = ""
     var lastName : String = ""
@@ -27,24 +25,18 @@ class RegistrationViewController: UIViewController, UITextFieldDelegate, UIPicke
     
     var archiver = UserData()
     
-    var heightFeetPicker = ["1", "2", "3", "4", "5", "6", "7", "8", "9"]
-    var heightInchesPicker = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11"]
-    
+    let letters = NSCharacterSet.letterCharacterSet()
+    let digits = NSCharacterSet.decimalDigitCharacterSet()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         initFields()
         
-        picker.hidden = true;
-        pickerInches.hidden = true;
-        
-        heightFeetField.text = heightFeetPicker[0]
-        heightInchesField.text = heightInchesPicker[0]
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+        /*var preferences = EasyTipView.Preferences()
+        preferences.drawing.font = UIFont(name: "Futura-Medium", size: 13)!
+        preferences.drawing.foregroundColor = UIColor.whiteColor()
+        preferences.drawing.backgroundColor = UIColor(hue:0.46, saturation:0.99, brightness:0.6, alpha:1)
+        preferences.drawing.arrowPosition = EasyTipView.ArrowPosition.Top*/
     }
     
     //Set the delegate and keyboard types for each input text field
@@ -59,51 +51,49 @@ class RegistrationViewController: UIViewController, UITextFieldDelegate, UIPicke
         weightField.keyboardType = UIKeyboardType.NumberPad
         
         heightFeetField.delegate = self
-        heightFeetField.inputView = picker
+        heightFeetField.keyboardType = UIKeyboardType.NumberPad
         
         heightInchesField.delegate = self
-        heightInchesField.inputView = pickerInches
+        heightInchesField.keyboardType = UIKeyboardType.NumberPad
     }
 
     @IBAction func submit(sender: AnyObject) {
         firstName = firstNameField.text!
-        if ((firstName) == "") {
-            print("1")
-        } else {
+        if !(firstName == "") {
             archiver.firstName = firstName
         }
         
         lastName = lastNameField.text!
-        if ((lastName) == "") {
-            print("2")
-        } else {
+        if !(lastName == "") {
             archiver.lastName = lastName
         }
         
         heightFeet = heightFeetField.text!
         heightInches = heightInchesField.text!
-        
-        if ((heightFeet) == "") {
-            print("3")
-        } else {
-            if ((heightInches) == "") {
-                archiver.height = Int(heightFeet)!
-            } else {
+        if !(heightFeet == "") {
+            if !(heightInches == "") {
                 archiver.height = Int(heightInches)! + (12 * Int(heightFeet)!)
             }
         }
         
         weight = weightField.text!
-        if ((weight) == "") {
-            print("5")
-        } else {
-            //archiver.weight = Int(weight)!
+        if !(weight == "") {
+            archiver.weight = Int(weight)!
         }
 
         archiver.registrationDate = NSDate()
         
         archiver.registrationComplete = true
         performSegueWithIdentifier("toCharityTable", sender: self)
+    }
+    
+    
+    @IBAction func editingChangedFirstName(sender: UITextField) {
+        for char in (sender.text?.unicodeScalars)! {
+            if !(letters.longCharacterIsMember(char.value)) {
+                //show error
+            }
+        }
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -115,56 +105,14 @@ class RegistrationViewController: UIViewController, UITextFieldDelegate, UIPicke
         view.endEditing(true)
     }
     
-    // Dismiss the keyboard when the user taps the "Return" key while editing a text field.
+    // Dismiss the keyboard when the user taps the Return key while editing a text field
     func textFieldShouldReturn(textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true;
     }
     
-    // returns the number of 'columns' to display.
+    // returns the number of columns to display
     func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int{
         return 1
     }
-    
-    // returns the # of rows in each component..
-    func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int{
-        if (pickerView.tag == 0) {
-            return heightFeetPicker.count
-        } else {
-            return heightInchesPicker.count
-        }
-    }
-    
-    func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        if (pickerView.tag == 0) {
-            return heightFeetPicker[row] 
-        } else {
-            return heightInchesPicker[row]
-        }
-    }
-    
-    func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int)
-    {
-        if (pickerView.tag == 0) {
-            heightFeetField.text = heightFeetPicker[row]
-            picker.hidden = true
-        } else {
-            heightInchesField.text = heightInchesPicker[row]
-            pickerInches.hidden = true
-        }
-    }
-    
-    func textFieldShouldBeginEditing(textField: UITextField) -> Bool {
-        if (textField == heightFeetField) {
-            picker.hidden = false
-        } else if (textField == heightInchesField) {
-            pickerInches.hidden = false
-        } else {
-            picker.hidden = true
-            pickerInches.hidden = true
-        }
-        
-        return false
-    }
-    
 }

@@ -39,11 +39,6 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ebs-PF-HpV">
-                                <rect key="frame" x="284" y="44" width="97" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Last Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="odu-Fm-lg8">
                                 <rect key="frame" x="140" y="117" width="82" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -61,13 +56,6 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BNn-k4-PUq">
-                                <rect key="frame" x="-6" y="384" width="600" height="216"/>
-                                <connections>
-                                    <outlet property="dataSource" destination="RUk-3A-lX7" id="4Pg-W3-rM4"/>
-                                    <outlet property="delegate" destination="RUk-3A-lX7" id="pTK-ha-S54"/>
-                                </connections>
-                            </pickerView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vsz-09-L90">
                                 <rect key="frame" x="301" y="325" width="46" height="30"/>
                                 <state key="normal" title="Button"/>
@@ -75,17 +63,18 @@
                                     <action selector="submit:" destination="RUk-3A-lX7" eventType="touchDown" id="2ev-f0-rq8"/>
                                 </connections>
                             </button>
-                            <pickerView tag="1" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="w89-kq-X1J">
-                                <rect key="frame" x="0.0" y="384" width="600" height="216"/>
-                                <connections>
-                                    <outlet property="dataSource" destination="RUk-3A-lX7" id="Bfe-1J-XwA"/>
-                                    <outlet property="delegate" destination="RUk-3A-lX7" id="gOv-gB-C4f"/>
-                                </connections>
-                            </pickerView>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Hfb-EU-1dd">
                                 <rect key="frame" x="284" y="225" width="97" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ebs-PF-HpV">
+                                <rect key="frame" x="284" y="44" width="97" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="editingChangedFirstName:" destination="RUk-3A-lX7" eventType="editingChanged" id="tDg-9H-joO"/>
+                                </connections>
                             </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -98,8 +87,6 @@
                         <outlet property="heightFeetField" destination="bLv-ca-vWe" id="Xmp-5k-KRP"/>
                         <outlet property="heightInchesField" destination="Hfb-EU-1dd" id="PkP-qS-wnc"/>
                         <outlet property="lastNameField" destination="BPf-1R-RPS" id="5vc-a8-we1"/>
-                        <outlet property="picker" destination="BNn-k4-PUq" id="BOR-dL-g6i"/>
-                        <outlet property="pickerInches" destination="w89-kq-X1J" id="g1O-CM-XGA"/>
                         <outlet property="weightField" destination="Xdh-zh-GIQ" id="UPJ-6x-OlN"/>
                         <segue destination="Psf-l4-Rvl" kind="show" identifier="toCharityTable" id="2im-G0-qg3"/>
                     </connections>

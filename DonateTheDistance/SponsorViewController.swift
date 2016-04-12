@@ -13,13 +13,8 @@ class SponsorViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        // Create timer to display the sponsor to the user for a specified amount of time
         _ = NSTimer.scheduledTimerWithTimeInterval(5.0, target: self, selector: "showWorkoutResults", userInfo: nil, repeats: false)
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     func showWorkoutResults() {
