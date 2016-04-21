@@ -81,17 +81,16 @@ class RegistrationViewController: UIViewController, UITextFieldDelegate, UIPicke
         }
         
         heightFeet = heightFeetField.text!
+        heightInches = heightInchesField.text!
+        
         if ((heightFeet) == "") {
             print("3")
         } else {
-            archiver.height = Int(heightFeet)!
-        }
-        
-        heightInches = heightInchesField.text!
-        if ((heightInches) == "") {
-            print("4")
-        } else {
-            archiver.height = Int(heightInches)!
+            if ((heightInches) == "") {
+                archiver.height = Int(heightFeet)!
+            } else {
+                archiver.height = Int(heightInches)! + (12 * Int(heightFeet)!)
+            }
         }
         
         weight = weightField.text!

@@ -54,5 +54,4 @@ class UserData: NSObject {
         coder.encodeObject(self.registrationDate, forKey: "registrationDate")
         coder.encodeBool(self.registrationComplete, forKey: "registrationComplete")
     }
-
 }
